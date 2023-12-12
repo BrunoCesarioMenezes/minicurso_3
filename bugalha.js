@@ -18,7 +18,14 @@ let b17 = document.querySelector("#btn17");
 let b18 = document.querySelector("#btn18");
 let botoes = [[b1, b2, b3], [b4, b5, b6], [b7, b8, b9]];
 
-let displayPt = document.querySelectorAll("p");
+let displayPt = [
+    document.querySelector("#ptbot1"),
+    document.querySelector("#ptbot2"),
+    document.querySelector("#ptbot3"),
+    document.querySelector("#ptjog1"),
+    document.querySelector("#ptjog2"),
+    document.querySelector("#ptjog3"),
+];
 let Pt = [0, 0, 0, 0, 0, 0];
 
 let tabJogador = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
@@ -209,8 +216,8 @@ function somaColuna() {
         }
         somaJog = Pt[0] + Pt[1] + Pt[2];
         somaBot = Pt[3] + Pt[4] + Pt[5];
-        displaySoma[0].innerHTML = somaJog;
-        displaySoma[1].innerHTML = somaBot;
+        displaySoma[1].innerHTML = somaJog;
+        displaySoma[0].innerHTML = somaBot;
     }
     }
 
@@ -239,7 +246,7 @@ function alocaDadoNaMatriz(vez, ind) {
                 break;
             }
         }
-        if (tabJogador[i][ind] !== 0 && i === 3) {
+        if (i >= 3) {
             for (let j = 0; j < 3; j++) {
                 for (let k = 0; k < 3; k++) {
                     if (tabJogador[j][k] === 0) {
@@ -247,7 +254,9 @@ function alocaDadoNaMatriz(vez, ind) {
                         displayJog[j][k].innerHTML = dado;
                         break;
                     }
+                    break;
                 }
+                break;
             }
         }
         else {
@@ -264,7 +273,7 @@ function alocaDadoNaMatriz(vez, ind) {
                 break;
             }
         }
-        if (tabBot[i][ind] !== 0 && i === 3) {
+        if (i >= 3) {
             for (let j = 0; j < 3; j++) {
                 for (let k = 0; k < 3; k++) {
                     if (tabBot[j][k] === 0) {
@@ -272,7 +281,9 @@ function alocaDadoNaMatriz(vez, ind) {
                         displayBot[j][k].innerHTML = dado;
                         break;
                     }
+                    break;
                 }
+                break;
             }
         }
         else {
@@ -340,8 +351,18 @@ function verificaTabAdversario(ind, vez) {
         else{
             displayDado.innerHTML = "FIM DE JOGO! PLAYER2 VENCEU!";
         }
-        displaySoma[0].innerHTML = somaJog;
-        displaySoma[1].innerHTML = somaBot;
+        displaySoma[1].innerHTML = somaJog;
+        displaySoma[0].innerHTML = somaBot;
+        botoes[0][1].addEventListener("click", restartGame);
+        botoes[0][2].addEventListener("click", restartGame);
+        botoes[1][0].addEventListener("click", restartGame);
+        botoes[1][1].addEventListener("click", restartGame);
+        botoes[1][2].addEventListener("click", restartGame);
+        botoes[0][0].addEventListener("click", restartGame);
+        botoes[2][0].addEventListener("click", restartGame);
+        botoes[2][1].addEventListener("click", restartGame);
+        botoes[2][2].addEventListener("click", restartGame);
+        return;
 1 }
     else {
         somaColuna();
