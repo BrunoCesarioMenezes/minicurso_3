@@ -65,8 +65,8 @@ function atualizaDisplay(){
             displayPtJog[j].innerHTML = ptJog[j];
             displayPtBot[j].innerHTML = ptBot[j];
         }
-        displaySoma[0].innerHTML = somaBot;
-        displaySoma[1].innerHTML = somaJog;
+        displaySoma[1].innerHTML = somaBot;
+        displaySoma[0].innerHTML = somaJog;
     }
 }
 
